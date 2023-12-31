@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgyteeqldhnvr"]
+
+[ext_resource type="Script" path="res://scenes/coin.gd" id="1_spuju"]
+[ext_resource type="Texture2D" uid="uid://b5rrmvxlh0n20" path="res://assets/coin/tile_0151.png" id="1_tx8qh"]
+[ext_resource type="Texture2D" uid="uid://b564j7nfm6gaj" path="res://assets/coin/tile_0152.png" id="2_w8p0d"]
+
+[sub_resource type="Animation" id="Animation_tcbsw"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_ju6dv"]
+resource_name = "Pickup"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ab07k"]
+_data = {
+"Idle": SubResource("Animation_tcbsw"),
+"Pickup": SubResource("Animation_ju6dv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfj0r"]
+radius = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_666nc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tx8qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w8p0d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_spuju")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_ab07k")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wfj0r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_666nc")
+autoplay = "default"
+frame_progress = 0.479387
