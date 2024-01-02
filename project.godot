@@ -44,6 +44,11 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_31="HAZARD"
+2d_physics/layer_32="PICKUP"
+
 [physics]
 
 2d/default_gravity=1000.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bgyteeqldhnvr"]
 
-[ext_resource type="Script" path="res://scenes/coin.gd" id="1_spuju"]
+[ext_resource type="Script" path="res://scenes/Coin.gd" id="1_spuju"]
 [ext_resource type="Texture2D" uid="uid://b5rrmvxlh0n20" path="res://assets/coin/tile_0151.png" id="1_tx8qh"]
 [ext_resource type="Texture2D" uid="uid://b564j7nfm6gaj" path="res://assets/coin/tile_0152.png" id="2_w8p0d"]
 
