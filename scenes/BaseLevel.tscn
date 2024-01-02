@@ -34,5 +34,11 @@ position = Vector2(0, 54)
 [node name="EnemyGoal" parent="." instance=ExtResource("7_4p07r")]
 position = Vector2(63, 0)
 
+[node name="EnemyGoal3" parent="." instance=ExtResource("7_4p07r")]
+position = Vector2(54, 54)
+
+[node name="EnemyGoal4" parent="." instance=ExtResource("7_4p07r")]
+position = Vector2(-108, 54)
+
 [node name="EnemyGoal2" parent="." instance=ExtResource("7_4p07r")]
 position = Vector2(153, 0)
