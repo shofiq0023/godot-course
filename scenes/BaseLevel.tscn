@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://0l06iw58a0oc"]
+[gd_scene load_steps=8 format=3 uid="uid://0l06iw58a0oc"]
 
 [ext_resource type="Script" path="res://scenes/BaseLevel.gd" id="1_6j1dj"]
 [ext_resource type="TileSet" uid="uid://bmttggiqxubeg" path="res://resource/tile_set.tres" id="1_xl3s5"]
 [ext_resource type="PackedScene" uid="uid://buisth6573eu" path="res://scenes/Player.tscn" id="2_fjpm1"]
 [ext_resource type="PackedScene" uid="uid://cytsuywogguyn" path="res://scenes/GameCamera.tscn" id="3_vsn83"]
 [ext_resource type="PackedScene" uid="uid://cfcp8sq0s2y56" path="res://scenes/Spikes.tscn" id="4_a3eaj"]
+[ext_resource type="PackedScene" uid="uid://cvmta4bk5h7j4" path="res://scenes/Enemy.tscn" id="6_t6wax"]
+[ext_resource type="PackedScene" uid="uid://1qaw1sap0h50" path="res://scenes/EnemyGoal.tscn" id="7_4p07r"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_6j1dj")
@@ -21,3 +23,16 @@ position = Vector2(-81, 54)
 
 [node name="Spikes" parent="." instance=ExtResource("4_a3eaj")]
 position = Vector2(27, 54)
+
+[node name="Enemy" parent="." instance=ExtResource("6_t6wax")]
+position = Vector2(108, 0)
+start_direction = 1
+
+[node name="Enemy2" parent="." instance=ExtResource("6_t6wax")]
+position = Vector2(0, 54)
+
+[node name="EnemyGoal" parent="." instance=ExtResource("7_4p07r")]
+position = Vector2(63, 0)
+
+[node name="EnemyGoal2" parent="." instance=ExtResource("7_4p07r")]
+position = Vector2(153, 0)

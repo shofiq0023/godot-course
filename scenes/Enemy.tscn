@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvmta4bk5h7j4"]
+
+[ext_resource type="Script" path="res://scenes/Enemy.gd" id="1_2wiqr"]
+[ext_resource type="Texture2D" uid="uid://biph2wsw243s" path="res://assets/enemy/character_0015.png" id="1_lxkoc"]
+[ext_resource type="Texture2D" uid="uid://dumbkpwypr5hw" path="res://assets/enemy/character_0016.png" id="2_165xh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uq3xt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lxkoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_165xh")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkwnh"]
+size = Vector2(9, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foaco"]
+size = Vector2(9, 12)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_2wiqr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uq3xt")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.409539
+offset = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -6)
+shape = SubResource("RectangleShape2D_fkwnh")
+
+[node name="GoalDetector" type="Area2D" parent="."]
+collision_layer = 536870912
+collision_mask = 536870912
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
+position = Vector2(-0.5, -6)
+shape = SubResource("RectangleShape2D_foaco")
